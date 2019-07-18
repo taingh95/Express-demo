@@ -1,9 +1,15 @@
 const express = require("express");
 const app = express();
+//body parser
+var bodyParser = require('body-parser')
+
 
 const port = 3000;
 
 
+//app use
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true })) 
 //data
 let users =  [
     {name: "Tai", id: "1"},
@@ -36,6 +42,14 @@ app.get('/users/search', (req,res) => {
         users: matchedUser
     })
     console.log(req.query)
+})
+
+app.get('/users/create', (req,res) => {
+    res.render('users/create-user')
+})
+app.post('/users/create', (req,res) => {
+    users.push(req.body);
+    res.redirect('/users')
 })
 
 
