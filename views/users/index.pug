@@ -1,3 +1,17 @@
+form(action="/users/search", method="GET")
+    input(type="text",name="q")#searchInput
+    button Search
+
 ul
     each user in users
         li=user.name
+
+// script.js
+script(type="text/javascript").
+    let inputValue = document.getElementById('searchInput')
+    inputValue.value = sessionStorage.getItem("inputCurrentValue")
+
+    inputValue.addEventListener('change', setInputValue)
+    function setInputValue() {
+    sessionStorage.setItem("inputCurrentValue", inputValue.value)
+    }
