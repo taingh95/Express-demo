@@ -29,8 +29,21 @@ module.exports.postCreate = (req,res) => {
         length: 32,
         useLetters: false
       });
+    let errors = [];
     let user = {
-        name: req.body.name, id: req.body.id
+        name: req.body.name, id: req.body.id, phone: req.body.phone
+    }
+    if(!req.body.name) {
+        errors.push("Name is required!!")
+    }
+    if(!req.body.phone) {
+        errors.push("Phone is required!!")
+    }
+    if(errors.length) {
+        res.render('users/create-user', {
+            errors, values: req.body
+        })
+        return;
     }
     db.get('users').push(user).write();
     res.redirect('/users')

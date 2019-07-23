@@ -1,23 +1,32 @@
-a(href="/users/create") 
-    button Create New User
+extends ../layouts/common
 
-form(action="/users/search", method="GET")
-    input(type="text",name="q")#searchInput
-    button Search
+block content
+    a(href="/users/create") 
+        button(class="btn btn-block btn-secondary my-4") Create New User
 
-ul
-    each user in users
-        li
-            span=user.name
-            span &nbsp
-            a(href='/users/' + user.id) View
-// script.js
-script(type="text/javascript").
+    form(action="/users/search", method="GET", class="d-flex")
+        input(type="text",name="q", class="form-control, col-sm-8 ml-4")#searchInput
+        button(class="btn btn-secondary col-sm-3 ml-4") Search
 
-    let inputValue = document.getElementById('searchInput')
-    inputValue.value = sessionStorage.getItem("inputCurrentValue")
+    table.table
+        tr 
+            th Name
+            th Phone
+            th Actions
+        each user in users
+            tr
+                td= user.name 
+                td= user.phone
+                td
+                    a(href='/users/' + user.id, class="btn btn-light") View
+                    
+    // script.js
+    script(type="text/javascript").
 
-    inputValue.addEventListener('change', setInputValue)
-    function setInputValue() {
-    sessionStorage.setItem("inputCurrentValue", inputValue.value)
-    }
+        let inputValue = document.getElementById('searchInput')
+        inputValue.value = sessionStorage.getItem("inputCurrentValue")
+
+        inputValue.addEventListener('change', setInputValue)
+        function setInputValue() {
+        sessionStorage.setItem("inputCurrentValue", inputValue.value)
+        }
