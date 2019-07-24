@@ -1,7 +1,17 @@
 const express = require("express");
+
 const userRoute = require('./routes/user.route')
+const authRoute = require('./routes/auth.route')
+
+//auth middleware
+const authMiddlewares = require('./middlewares/auth.middleware')
+
+
 //body parser
 var bodyParser = require('body-parser')
+var cookieParser = require('cookie-parser')
+
+
 
 const port = 3000;
 const app = express();
@@ -9,19 +19,21 @@ const app = express();
 //app use
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true })) 
+app.use(cookieParser());
 
 //view engine
 app.set("views", "./views");
 app.set("view engine", "pug");
 
-app.get("/", (req, res) => {
+app.get("/",authMiddlewares.requireAuth ,(req, res) => {
   res.render("index", {
     name: "Tai"
   });
 });
 
-app.use('/users', userRoute)
-
+//authMiddlewares.requireAuth ,
+app.use('/users',authMiddlewares.requireAuth ,userRoute)
+app.use('/auth', authRoute)
 
 
 app.listen(port, () => console.log(`App is running on port ${3000}`));

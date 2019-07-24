@@ -2,7 +2,7 @@ var express = require('express')
 var router = express.Router()
 
 const controller = require('../controllers/user-controller')
-
+const validate = require('../validate/user-validation')
 
 
 router.get('/', controller.index)
@@ -12,7 +12,7 @@ router.get('/search', controller.search)
 
 //add-new-user
 router.get('/create', controller.getCreate)
-router.post('/create', controller.postCreate)
+router.post('/create', validate.postCreate,controller.postCreate)
 
 //view dynamic router
 router.get('/:id', controller.viewUser)
