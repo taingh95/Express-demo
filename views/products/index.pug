@@ -1,0 +1,50 @@
+extends ../layouts/common
+
+block content
+    .row    
+        each product in products
+            .card.col-md-3(style='width: 18rem;')
+                img.card-img-top(src=product.image, alt='...')
+                .card-body
+                    h5.card-title=product.name
+                    p.card-text=product.desc
+                    a.btn.btn-primary(href='#') Add to cart
+    .row.pagination-link.justify-content-end.mt-2    
+        nav(aria-label='Page navigation example')
+            ul.pagination#pagiNation
+                li.page-item
+                    a.page-link#firstPage(href='#') First
+                li.page-item
+                    a.page-link#pagePrev(href='#') Previous
+                - var n = 1;    
+                while n <= pageNumber
+                    li.page-item
+                        a.page-link(href='/products?page='+n)=n++
+                li.page-item
+                    a.page-link#pageNext(href='#') Next   
+                li.page-item
+                    a.page-link#lastPage(href='#') Last             
+    script(type="text/javascript").
+        window.addEventListener('DOMContentLoaded', (event) => {
+            let pageNumberSplited = window.location.href.split('=');
+            let pageNumber = parseInt(pageNumberSplited[1])
+            //add active button
+            let header = document.getElementById("pagiNation");
+            let btns = header.getElementsByClassName("page-item");
+            btns[pageNumber+1].classList.add('active'); 
+            //add prev and Next page
+            document.getElementById('pagePrev').href = `/products?page=${pageNumber-1}`
+            document.getElementById('pageNext').href = `/products?page=${pageNumber+1}`
+            if(pageNumber === 1) {
+                btns[1].classList.add('disabled');
+            }
+            let nextBtn = btns.length-2; //position of nextBtn in btns array
+            if(pageNumber === (btns.length-4)) {
+                btns[nextBtn].classList.add('disabled')
+            }
+            //1st page and last page
+            console.log(btns.length)
+            document.getElementById('firstPage').href=`/products?page=1`
+            document.getElementById('lastPage').href=`/products?page=${btns.length-4}`
+        })
+        

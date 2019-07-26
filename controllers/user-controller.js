@@ -17,7 +17,6 @@ module.exports.search = (req,res) => {
     res.render('users/index', {
         users: matchedUser
     })
-    console.log(req.query)
 }
 
 module.exports.getCreate = (req,res) => {

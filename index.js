@@ -2,7 +2,7 @@ const express = require("express");
 
 const userRoute = require('./routes/user.route')
 const authRoute = require('./routes/auth.route')
-
+const productRoute = require('./routes/product.route')
 //auth middleware
 const authMiddlewares = require('./middlewares/auth.middleware')
 
@@ -19,7 +19,7 @@ const app = express();
 //app use
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true })) 
-app.use(cookieParser());
+app.use(cookieParser('nguyenhuutai'));
 
 //view engine
 app.set("views", "./views");
@@ -34,6 +34,7 @@ app.get("/",authMiddlewares.requireAuth ,(req, res) => {
 //authMiddlewares.requireAuth ,
 app.use('/users',authMiddlewares.requireAuth ,userRoute)
 app.use('/auth', authRoute)
+app.use('/products', productRoute)
 
 
 app.listen(port, () => console.log(`App is running on port ${3000}`));
