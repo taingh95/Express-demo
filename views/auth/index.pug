@@ -12,4 +12,14 @@ block content
             label(for="phone") Password
             input#password.form-control(type="password", name="password", value= values ? values.password : "")
 
-        button.btn.btn-primary.btn-block Login
+        button.btn.btn-primary(style={width:"10rem"}) Login
+    p Don't have an account? 
+        button.btn.btn-link.d-inline#signUp(style={paddingBottom:"0.6rem"}) Sign Up
+
+    // script.js
+    
+    script(type="text/javascript").
+        let signUpBtn = document.getElementById('signUp');
+        signUpBtn.addEventListener('click', () => {
+            window.location.href="http://localhost:3000/auth/create";
+        })

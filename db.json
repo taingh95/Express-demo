@@ -1,38 +1,20 @@
 {
   "users": [
     {
-      "name": "Lan",
-      "id": "31828677009437344758108820725622",
-      "phone": "0123877632"
+      "email": "hang@gmail.com",
+      "password": "202cb962ac59075b964b07152d234b70",
+      "name": "Hang",
+      "phone": "123",
+      "id": "26483234765914854724797097370691",
+      "avatar": "uploads/aadeed6f10faa5b18f8f40597cf34576"
     },
     {
-      "name": "Trinh",
-      "id": "40080117927367978313920751690531",
-      "phone": "098326154",
-      "email": "1@gmail.com",
-      "password": "c4ca4238a0b923820dcc509a6f75849b"
-    },
-    {
-      "name": "Tai",
-      "id": "72928560796260440362168200916760",
+      "email": "taingh95@gmail.com",
+      "password": "202cb962ac59075b964b07152d234b70",
+      "name": "NGUYEN HUU TAI",
       "phone": "0898222747",
-      "email": "tai@gmail.com",
-      "password": "202cb962ac59075b964b07152d234b70"
-    },
-    {
-      "name": "Hung Nguyen",
-      "id": "13891819459510201913174883661612",
-      "phone": "0898222111"
-    },
-    {
-      "name": "Kakamala",
-      "id": "75687898045626631451230768235999",
-      "phone": "01235623923"
-    },
-    {
-      "name": "Than",
-      "id": "97833168562781622922705576213361",
-      "phone": "2130519582"
+      "id": "41560867045212893990656213656582",
+      "avatar": "uploads/7dff75b29000af3c3de2569f21e56a38"
     }
   ],
   "products": [

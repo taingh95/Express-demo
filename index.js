@@ -20,7 +20,7 @@ const app = express();
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true })) 
 app.use(cookieParser('nguyenhuutai'));
-
+app.use(express.static('public'))
 //view engine
 app.set("views", "./views");
 app.set("view engine", "pug");

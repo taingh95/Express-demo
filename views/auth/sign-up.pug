@@ -1,0 +1,26 @@
+extends ../layouts/common
+
+block content
+    h1 Register New Account
+    if errors
+        each error in errors
+            .alert.alert-danger=error
+    form(action="/auth/create", method="POST", enctype="multipart/form-data")
+        .form-group
+            label(for="email") Email
+            input#email.form-control(type="email", name="email", autofocus, value= values ? values.name : "")
+        .form-group
+            label(for="password") Password
+            input#phone.form-control(type="password", name="password", value= values ? values.phone : "")
+
+        .form-group
+            label(for="name") Name
+            input#name.form-control(type="text", name="name", autofocus, value= values ? values.name : "")
+        .form-group
+            label(for="phone") Phone
+            input#phone.form-control(type="text", name="phone", value= values ? values.phone : "")
+        .form-group
+        label(for="avatar") Avatar
+        input#avatar.form-control-file.mb-4(type="file", name="avatar") 
+
+        button.btn.btn-primary.btn-block Create
