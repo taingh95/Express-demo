@@ -12,15 +12,15 @@ body
                     a.nav-link(href='/users') Users
                 li.nav-item
                     a.nav-link(href='/products?page=1') Products
+                if productNumber    
+                    li.nav-item
+                        a.nav-link(href='') Cart (#{productNumber})    
         if user    
             p=user.name        
             button.btn.btn-link.d-inline#logOut(onclick='removeCookie()') Log out    
     .container.pt-5
         block content
     script(type="text/javascript").
-        //- let logOutBtn = document.getElementById('logOut');
-
-        //- logOutBtn.addEventListener('click', removeCookie)
         function removeCookie() {
                 document.cookie = "userID=";
                 window.location.reload();

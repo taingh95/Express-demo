@@ -8,7 +8,7 @@ block content
                 .card-body
                     h5.card-title=product.name
                     p.card-text=product.desc
-                    a.btn.btn-primary(href='#') Add to cart
+                    a.btn.btn-primary(href='/cart/add/' + product.id) Add to cart
     .row.pagination-link.justify-content-end.mt-2    
         nav(aria-label='Page navigation example')
             ul.pagination#pagiNation

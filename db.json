@@ -618,5 +618,19 @@
       "image": "https://loremflickr.com/320/240",
       "desc": "amet turpis elementum ligula vehicula consequat morbi a ipsum integer a nibh in quis justo maecenas rhoncus aliquam lacus morbi"
     }
+  ],
+  "sessions": [
+    {
+      "id": "25056036933857361046051049659083",
+      "cart": {
+        "261d06d9-d3ab-44c3-84b2-a0d9093e154d": 8,
+        "51b5426d-3c9d-4fae-8a8a-51418c0e4c86": 18,
+        "f917813f-1911-4687-ab98-11692448c1fc": 12,
+        "85512416-46b1-45b6-8cd1-8c368adf6661": 3,
+        "41de52cd-20b3-43ef-bfe0-a0b9d9061164": 2,
+        "9a186ba2-f042-4fd5-82f8-fea99fcdf968": 1,
+        "0a94a07f-560c-4d38-9d1f-8fae8c7c8d2b": 1
+      }
+    }
   ]
 }
